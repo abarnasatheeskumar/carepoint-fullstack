@@ -178,8 +178,5 @@ app.use('/api', (req, res) => res.status(404).json({ error: 'API endpoint not fo
 app.use(express.static(__dirname));
 app.use(handleError);
 
-if (require.main === module) {
-  ensureDb();
-  app.listen(PORT, () => console.log(`CarePoint running at http://localhost:${PORT}`));
-}
-module.exports = { app, ensureDb, readDb, writeDb, DB_PATH };
+
+module.exports = app;
