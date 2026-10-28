@@ -175,7 +175,11 @@ app.delete('/api/appointments/:id', auth, (req, res, next) => {
 });
 
 app.use('/api', (req, res) => res.status(404).json({ error: 'API endpoint not found' }));
-app.use(express.static(__dirname));
+app.get('/',(req,res)=>{
+        res.sendFile(path.join(__dirname,'index.html'));
+});
+  
+
 app.use(handleError);
 
 
